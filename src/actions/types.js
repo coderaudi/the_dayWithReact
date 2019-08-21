@@ -1,0 +1,2 @@
+export const GET_WEBNAME = "GET_WEBNAME";
+export const GET_WEBNAME_FAILURE = "GET_WEBNAME_FAILURE";
