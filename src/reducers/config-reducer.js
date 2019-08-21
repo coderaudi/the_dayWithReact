@@ -37,7 +37,7 @@ export default (state = INIT_STATE, action) => {
     case LOGIN:
       return {
         ...state,
-        username: "",
+        username: "logging_started",
         userLogged: false,
         loadingUserLogin: true
       };

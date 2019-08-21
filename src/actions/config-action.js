@@ -8,10 +8,26 @@ export const getWebName = () => {
   return { type: GET_WEBNAME, payload: data };
 };
 
-export const getLogin = data => {
-  if (data.username == data.password) {
-    return { type: LOGIN_SUCCESS, payload: data };
-  } else {
-    return { type: LOGIN_FAILURE, payload: data };
-  }
+export const loginUser = ({ title, userId }) => {
+  return dispatch => {
+    dispatch({ type: LOGIN });
+    setTimeout(() => {
+      dispatch({ type: LOGIN_SUCCESS });
+    }, 2500);
+    setTimeout(() => {
+      dispatch({ type: LOGIN_FAILURE });
+    }, 2500);
+    // axios
+    //   .post(`https://jsonplaceholder.typicode.com/todos`, {
+    //     title,
+    //     userId,
+    //     completed: false
+    //   })
+    //   .then(res => {
+    //     dispatch(addTodoSuccess(res.data));
+    //   })
+    //   .catch(err => {
+    //     dispatch(addTodoFailure(err.message));
+    //   });
+  };
 };

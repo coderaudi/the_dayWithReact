@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AppConfig from "../../const/AppConfig";
-import { getLogin } from "../../actions/index";
+import { loginUser } from "../../actions/index";
 class Signin extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class Signin extends Component {
       username: "audi",
       password: "audi"
     };
-    this.props.getLogin(tempData);
+    this.props.loginUser(tempData);
   };
   render() {
     return (
@@ -46,7 +46,7 @@ const mapStateToProps = ({ config }) => {
 export default connect(
   mapStateToProps,
   {
-    getLogin
+    loginUser
     // saveCaseComplaintData   api calls
   }
 )(Signin);
