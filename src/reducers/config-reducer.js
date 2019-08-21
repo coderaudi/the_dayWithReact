@@ -1,5 +1,13 @@
-import { GET_WEBNAME } from "../actions/types";
+import {
+  GET_WEBNAME,
+  LOGIN,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS
+} from "../actions/types";
 const INIT_STATE = {
+  username: "",
+  userLogged: false,
+  loadingUserLogin: false,
   webname: "webname_default",
   data: {}
 };
@@ -24,6 +32,28 @@ export default (state = INIT_STATE, action) => {
         ...state,
         casesDataLoading: false,
         copyRightText: "NA"
+      };
+
+    case LOGIN:
+      return {
+        ...state,
+        username: "",
+        userLogged: false,
+        loadingUserLogin: true
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        username: "Audi_user",
+        userLogged: true,
+        loadingUserLogin: false
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        username: "",
+        userLogged: false,
+        loadingUserLogin: false
       };
 
     default:
